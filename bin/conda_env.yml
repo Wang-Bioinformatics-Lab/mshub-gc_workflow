@@ -1,9 +1,18 @@
+name: mshub-gc-env
 channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.8.8
+  - python==3.8
   - pandas
+  - pip>=20.3.4
   - pip:
     - xmltodict
     - requests
+    - h5py
+    - scipy
+    - bokeh
+    - statsmodels
+    - pymzml
+    - scikit-learn
+    - numpy==1.23.2
