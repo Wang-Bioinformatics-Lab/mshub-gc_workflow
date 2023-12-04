@@ -1,19 +1,10 @@
-name: template_nextflow_workflow
-displayname: STUFF
+name: mshubgc_workflow
+displayname: mshubgc workflow results
 Views:
--   name: Summary List
-    displayname: Summary List
-    viewname: summarylist
-    displaytype: datatable
+-   name: quantification.csv
+    displayname: quantification table
+    viewname: quantification_csv
+    displaytype: download
     parameters:
-        filename: output/summary.tsv
-        columns:
-            -   title: "View LCMS"
-                data: filename
-            -   title: "filename"
-                data: filename
-        columnDefs: '[ {"targets": 0,"data": null,"render": function ( data, type, row, meta ) {
-            return `
-            <a target="_blank" href="/dashboards/lcms?usi=mzspec:GNPS2-${task}:${encodeURIComponent(row["filename"])}">View LCMS - mzspec:GNPS2-${task}:${row["filename"]}</a>
-            `;}}]'
+        filename: nf_output/quantification.csv
             

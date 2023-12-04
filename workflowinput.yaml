@@ -1,21 +1,31 @@
-workflowname: template_nextflow_workflow
-workflowdescription: template_nextflow_workflow
-workflowlongdescription: This is a template nextflow workflow for GNPS2
+workflowname: mshubgc_workflow
+workflowdescription: mshubgc_workflow
+workflowlongdescription: Workflow to process raw gc-ms data. A Wide spectral alignment and the subsequent deconvolution in GNPS2.
 workflowversion: "0.1"
 workflowfile: nf_workflow.nf
 workflowautohide: false
 adminonly: false
-#This maps the parameters from an input form to those that will appear in nextflow
 parameterlist:
-    - displayname: File Selection
+    - displayname: Parameters
       paramtype: section
 
-    - displayname: Input Data Folder
+    - displayname: Input Spectra folder. All files should be in the same MS format (cdf, mzml or mzxml). 
       paramtype: fileselector
       nf_paramname: input_spectra_folder
-      formplaceholder: Enter the path to data
+      formplaceholder: Enter the path to spectra files. 
       formvalue: ""
       targettaskfolder: input_spectra
       optional: false
       selectsinglefile: false
       folderunroll: true
+    
+    - displayname: Time unit (sec or min)
+      paramtype: select
+      nf_paramname: time_unit
+      formvalue: "SEC"
+      options:
+        - value: "SEC"
+          display: sec
+        - value: "MIN"
+          display: min
+        
