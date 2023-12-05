@@ -63,11 +63,7 @@ def parse_peaks_for_output(input_filename, output_filename):
 """ Presence and Abscence of features across many files
     Need to fix this for clustering
 """
-def simple_presence_of_merged_spectra_processing(input_integrals_filename, output_clusterinfo_filename, mangled_mapping):
-    extension_stripped_mangled_mapping = {}
-    for key in mangled_mapping:
-        without_ext = ming_fileio_library.get_filename_without_extension(key)
-        extension_stripped_mangled_mapping[without_ext] = mangled_mapping[key]
+def simple_presence_of_merged_spectra_processing(input_integrals_filename, output_clusterinfo_filename):
 
 
     header_order = open(input_integrals_filename).readline().rstrip().split(",")[1:]
@@ -193,17 +189,11 @@ def main():
     parser.add_argument('-vistic_script', help='vistic_script', default="./proc/vis/vistic.py")
     args = parser.parse_args()
     
-    mangled_mapping = proteosafe.get_mangled_file_mapping_from_folder(args.spectrum_folder)
     
     file_type_of_import = determine_filetype_of_import(args.spectrum_folder)
 
-    # Writing a file summary
-    import glob
-    all_files = glob.glob(os.path.join(args.spectrum_folder, "*"))
-    all_files = [mangled_mapping[os.path.basename(filename)] for filename in all_files]
-    print(all_files)
-    all_input_filenames = os.listdir(args.spectrum_folder)
-    print(all_input_filenames)
+
+    all_files = [filename for filename in os.listdir(args.spectrum_folder) if os.path.isfile(filename)]
     
     filename_df = pd.DataFrame()
     filename_df["full_CCMS_path"] = all_files
@@ -256,23 +246,23 @@ def main():
     output_peak_txt_filename = os.path.join(folder_path, "data_ms_peaks.txt")
     output_quant_filename = os.path.join(folder_path, "data_integrals.csv")
 
-    # mapping the input spec names
-    mangled_mapping_filename = {}
-    for key , value in mangled_mapping.items():
-        mangled_mapping_filename[key.split('.')[0]] = value.split('.')[0].split("/")[-1]
+    filename_mapping = {}
+    for filename in all_files:
+        removed_extension = os.path.splitext(filename)[0]
+        filename_mapping[removed_extension] = filename    
 
     f = open(output_quant_filename,'r').readlines()
     quant_in_memory = []
     for line in f:
         fname = line.split(',')[0]
-        if fname.startswith("spec") and fname in mangled_mapping_filename:
-            line = line.replace(fname, mangled_mapping_filename[fname])
+        if fname.startswith("spec") and fname in filename_mapping:
+            line = line.replace(fname, filename_mapping[fname])
         quant_in_memory.append(line)
     rewrite_quant = open(output_quant_filename,'w')
     rewrite_quant.write("".join(quant_in_memory))
     rewrite_quant.close()
     scan_to_basepeak = parse_peaks_for_output(output_peak_txt_filename, args.clustered_mgf)
-    simple_presence_of_merged_spectra_processing(output_quant_filename, args.clusterinfo, mangled_mapping)
+    simple_presence_of_merged_spectra_processing(output_quant_filename, args.clusterinfo)
     generate_clustersummary(output_quant_filename, args.clustersummary, scan_to_basepeak=scan_to_basepeak)
 
     # Removing the big data

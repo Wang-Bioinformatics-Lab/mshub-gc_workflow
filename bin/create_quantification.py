@@ -24,7 +24,7 @@ def load_feature_to_rt_mapping(integrals_filename):
     return mapping
 
 def convert_quantification(input_integrals_filename, spectra_path, output_filename):
-    all_input_filenames = os.listdir(spectra_path)
+    all_input_filenames = [filename for filename in os.listdir(spectra_path) if os.path.isfile(filename)]
     filename_mapping = {}
     for filename in all_input_filenames:
         removed_extension = os.path.splitext(filename)[0]
