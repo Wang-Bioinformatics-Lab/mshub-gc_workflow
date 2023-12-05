@@ -41,7 +41,7 @@ Views:
     viewname: clusteredsummary_view
     displaytype: datatable
     parameters:
-        filename: nf_output/clusteredinfo.tsv
+        filename: nf_output/clustersummary.tsv
         columns:
             -   title: "cluster index"
                 data: cluster index
