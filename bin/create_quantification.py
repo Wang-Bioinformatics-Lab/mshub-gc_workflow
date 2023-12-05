@@ -1,13 +1,8 @@
 #!/usr/bin/python
 
 import pandas as pd
-import sys
-import getopt
 import os
 import argparse
-import subprocess
-import proteosafe
-from collections import defaultdict
 
 def load_feature_to_rt_mapping(integrals_filename):
     mapping = {}

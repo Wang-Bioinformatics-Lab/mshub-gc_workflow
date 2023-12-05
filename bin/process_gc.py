@@ -2,7 +2,6 @@
 
 import pandas as pd
 import sys
-import getopt
 import os
 import argparse
 import subprocess
