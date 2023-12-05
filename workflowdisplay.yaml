@@ -14,6 +14,7 @@ Views:
                 data: row m/z
             -   title: "RT"
                 data: row retention time
+                
 -   name: clustered_mgf
     displayname: Clustered MGF file
     viewname: clustered_mgf_view
