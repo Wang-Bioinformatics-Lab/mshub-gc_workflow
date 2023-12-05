@@ -10,17 +10,15 @@ Views:
         columns:
             -   title: "row ID"
                 data: row ID
-            -   title: "m/z"
-                data: row m/z
             -   title: "RT"
                 data: row retention time
-                
+
 -   name: clustered_mgf
     displayname: Clustered MGF file
     viewname: clustered_mgf_view
     displaytype: download
     parameters:
-        filename: nf_output/clustered_mgf.mgf.csv
+        filename: nf_output/clustered_mgf.mgf
 
 -   name: clusteredinfo
     displayname: clustered Info table
