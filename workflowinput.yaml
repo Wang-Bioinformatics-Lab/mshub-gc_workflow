@@ -9,7 +9,7 @@ parameterlist:
     - displayname: Parameters
       paramtype: section
 
-    - displayname: Input Spectra folder. 
+    - displayname: Input Spectra folder
       paramtype: fileselector
       nf_paramname: input_spectra_folder
       formplaceholder: Enter the path to spectra files. All files should be in the same MS format (cdf, mzml or mzxml). 

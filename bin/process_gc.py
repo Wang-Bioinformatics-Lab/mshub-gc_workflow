@@ -7,7 +7,6 @@ import os
 import argparse
 import subprocess
 import ming_fileio_library
-import proteosafe
 from collections import defaultdict
 
 # Parsing the output mgf
