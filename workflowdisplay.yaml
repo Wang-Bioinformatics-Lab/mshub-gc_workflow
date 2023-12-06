@@ -1,5 +1,5 @@
 name: mshubgc_workflow
-displayname: mshubgc workflow results
+displayname: MSHUB-GC Workflow results
 Views:
 -   name: Tables section
     displayname: Tables
@@ -7,7 +7,7 @@ Views:
     displaytype: section
 
 -   name: quantification
-    displayname: quantification table
+    displayname: Quantification table
     viewname: quantification_csv_view
     displaytype: datatable
     parameters:
@@ -19,7 +19,7 @@ Views:
                 data: row retention time
 
 -   name: clusteredsummary
-    displayname: clustered summary table
+    displayname: Clustered summary table
     viewname: clusteredsummary_view
     displaytype: datatable
     parameters:
@@ -34,13 +34,13 @@ Views:
             -   title: "BasePeak"
                 data: BasePeak
 
--   name: MGF deconvolved section
-    displayname:  MGF deconvolved section
+-   name: MGF Deconvolved section
+    displayname:  MGF Deconvolved section
     viewname: section_tables_view
     displaytype: section
 
 -   name: clustered_mgf
-    displayname: clustered MGF file
+    displayname: Clustered MGF file
     viewname: clustered_mgf_view
     displaytype: download
     parameters:
