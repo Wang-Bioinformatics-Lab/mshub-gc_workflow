@@ -19,3 +19,19 @@ Views:
     displaytype: download
     parameters:
         filename: nf_output/clustered_mgf.mgf
+
+-   name: clusteredsummary
+    displayname: clustered Summary table
+    viewname: clusteredsummary_view
+    displaytype: datatable
+    parameters:
+        filename: nf_output/clustersummary.tsv
+        columns:
+            -   title: "cluster index"
+                data: cluster index
+            -   title: "RTMean"
+                data: RTMean
+            -   title: "Balance Score"
+                data: Balance Score
+            -   title: "BasePeak"
+                data: BasePeak
