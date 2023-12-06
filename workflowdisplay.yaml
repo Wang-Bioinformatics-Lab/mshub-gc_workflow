@@ -19,7 +19,7 @@ Views:
                 data: row retention time
 
 -   name: clusteredsummary
-    displayname: clustered Summary table
+    displayname: clustered summary table
     viewname: clusteredsummary_view
     displaytype: datatable
     parameters:
@@ -40,7 +40,7 @@ Views:
     displaytype: section
 
 -   name: clustered_mgf
-    displayname: Clustered MGF file
+    displayname: clustered MGF file
     viewname: clustered_mgf_view
     displaytype: download
     parameters:
