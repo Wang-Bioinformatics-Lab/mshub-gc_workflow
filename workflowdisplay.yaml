@@ -1,9 +1,6 @@
 name: mshubgc_workflow
 displayname: mshubgc workflow results
 Views:
-name: mshubgc_workflow
-displayname: mshubgc workflow results
-Views:
 -   name: Tables section
     displayname: Tables
     viewname: section_tables_view
