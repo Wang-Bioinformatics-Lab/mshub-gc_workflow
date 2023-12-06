@@ -1,41 +1,50 @@
 name: mshubgc_workflow
 displayname: mshubgc workflow results
 Views:
-- displayname: Advanced Network Options
-    paramtype: section
-    -   name: Quantification table
-        displayname: Quantification table
-        viewname: quantification_csv_view
-        displaytype: datatable
-        parameters:
-            filename: nf_output/quantification.csv
-            columns:
-                -   title: "row ID"
-                    data: row ID
-                -   title: "RT"
-                    data: row retention time
+name: mshubgc_workflow
+displayname: mshubgc workflow results
+Views:
+-   name: Tables section
+    displayname: Tables
+    viewname: section_tables_view
+    displaytype: section
 
-    -   name: clusteredsummary
-        displayname: Clustered Summary table
-        viewname: clusteredsummary_view
-        displaytype: datatable
-        parameters:
-            filename: nf_output/clustersummary.tsv
-            columns:
-                -   title: "cluster index"
-                    data: cluster index
-                -   title: "RTMean"
-                    data: RTMean
-                -   title: "Balance Score"
-                    data: Balance Score
-                -   title: "BasePeak"
-                    data: BasePeak
+-   name: quantification
+    displayname: quantification table
+    viewname: quantification_csv_view
+    displaytype: datatable
+    parameters:
+        filename: nf_output/quantification.csv
+        columns:
+            -   title: "row ID"
+                data: row ID
+            -   title: "RT"
+                data: row retention time
 
-- displayname: Download Deconvolved MGF 
-    paramtype: section
-    -   name: clustered_mgf
-        displayname: Clustered MGF File
-        viewname: clustered_mgf_view
-        displaytype: download
-        parameters:
-            filename: nf_output/clustered_mgf.mgf
+-   name: clusteredsummary
+    displayname: clustered Summary table
+    viewname: clusteredsummary_view
+    displaytype: datatable
+    parameters:
+        filename: nf_output/clustersummary.tsv
+        columns:
+            -   title: "cluster index"
+                data: cluster index
+            -   title: "RTMean"
+                data: RTMean
+            -   title: "Balance Score"
+                data: Balance Score
+            -   title: "BasePeak"
+                data: BasePeak
+
+-   name: MGF deconvolved section
+    displayname:  MGF deconvolved section
+    viewname: section_tables_view
+    displaytype: section
+
+-   name: clustered_mgf
+    displayname: Clustered MGF file
+    viewname: clustered_mgf_view
+    displaytype: download
+    parameters:
+        filename: nf_output/clustered_mgf.mgf
