@@ -14,8 +14,6 @@ process mshub_gc {
 
     output:
     path "clustered_mgf.mgf"
-    path "clusteredinfo.tsv"
-    path "clustersummary.tsv"
     path "scratch/data_integrals.csv", emit: integrals
 
     """
