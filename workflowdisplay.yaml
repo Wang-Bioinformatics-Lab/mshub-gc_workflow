@@ -39,8 +39,8 @@ Views:
     viewname: section_tables_view
     displaytype: section
 
--   name: Deconvolved MGF File
-    displayname: Deconvolved MGF File
+-   name: Download Deconvolved GCMS File
+    displayname: Download Deconvolved GCMS File
     viewname: clustered_mgf_view
     displaytype: download
     parameters:
