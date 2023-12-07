@@ -34,8 +34,8 @@ Views:
             -   title: "BasePeak"
                 data: BasePeak
 
--   name: Deconvolution
-    displayname:  Deconvolution
+-   name: Download Deconvolved GCMS Files
+    displayname:  Download Deconvolved GCMS Files
     viewname: section_tables_view
     displaytype: section
 
